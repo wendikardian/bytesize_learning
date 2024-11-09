@@ -4054,6 +4054,10 @@ html {
     transition: text-shadow 0.3s ease-in-out;
 }
 
+p img{
+    text-align: center !important;
+}
+
 @media (max-width: 768px) {
     .hide-on-mobile {
         display: none;
