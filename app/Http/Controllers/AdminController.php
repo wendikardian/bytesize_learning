@@ -625,16 +625,16 @@ class AdminController extends Controller
         $nextDetail->status = 1;
         $nextDetail->save();
 
-        try {
-            if ($nextDetail) {
-                $l = $nextDetail->learning;
-                // $l->status = 1;
-                $l->save();
-            }
-        } catch (\Exception $e) {
-            Log::error('Error updating learning status: ' . $e->getMessage());
-            return back()->with('error', 'Failed to update learning status.');
-        }
+        // try {
+        //     if ($nextDetail) {
+        //         $l = $nextDetail->learning;
+        //         // $l->status = 1;
+        //         $l->save();
+        //     }
+        // } catch (\Exception $e) {
+        //     Log::error('Error updating learning status: ' . $e->getMessage());
+        //     return back()->with('error', 'Failed to update learning status.');
+        // }
 
         $achievement = $learning->learning->user->achievement;
         $achievement->total_point += $eval->point;
