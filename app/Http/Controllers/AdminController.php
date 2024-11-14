@@ -626,9 +626,11 @@ class AdminController extends Controller
         $nextDetail->save();
 
         try {
-            $l = $nextDetail->learning;
-            $l->status = 1;
-            $l->save();
+            if ($nextDetail) {
+                $l = $nextDetail->learning;
+                $l->status = 1;
+                $l->save();
+            }
         } catch (\Exception $e) {
             Log::error('Error updating learning status: ' . $e->getMessage());
             return back()->with('error', 'Failed to update learning status.');
