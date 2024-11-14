@@ -26,7 +26,13 @@
                 <div class="badge badge-error text-white">User Not Found</div>
               @endif
               </td>
-              <td>{{ $e->detailLearning->learning->course->judul }}</td>
+                <td>
+                @if(isset($e->detailLearning->learning->course->judul))
+                {{ $e->detailLearning->learning->course->judul }}
+                @else
+                <div class="badge badge-error text-white">Course Not Found</div>
+                @endif
+                </td>
               <td>{{ $e->nilai }}</td>
               <td>
               @if ($e->status == 0)
