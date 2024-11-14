@@ -628,7 +628,7 @@ class AdminController extends Controller
         try {
             if ($nextDetail) {
                 $l = $nextDetail->learning;
-                $l->status = 1;
+                // $l->status = 1;
                 $l->save();
             }
         } catch (\Exception $e) {
