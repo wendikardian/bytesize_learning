@@ -19,18 +19,24 @@
             @foreach ($evaluation as $e)
             <tr>
               <th>{{ $loop->iteration }}</th>
-              <td>{{ $e->detailLearning->learning->user->name }}</td>
+              <td>
+              @if(isset($e->detailLearning->learning->user->name))
+                {{ $e->detailLearning->learning->user->name }}
+              @else
+                <div class="badge badge-error text-white">User Not Found</div>
+              @endif
+              </td>
               <td>{{ $e->detailLearning->learning->course->judul }}</td>
               <td>{{ $e->nilai }}</td>
               <td>
-                @if ($e->status == 0)
-                  <div class="badge badge-error text-white">Belum Mengerjakan</div></td>
+              @if ($e->status == 0)
+                <div class="badge badge-error text-white">Belum Mengerjakan</div></td>
+              @else
+                @if ($e->status == 1)
+                  <div class="badge badge-primary text-white">Belum Diperiksa</div></td>
                 @else
-                    @if ($e->status == 1)
-                      <div class="badge badge-primary text-white">Belum Diperiksa</div></td>
-                    @else
-                      <div class="badge badge-success text-white">Selesai</div></td>
-                    @endif
+                  <div class="badge badge-success text-white">Selesai</div></td>
+                @endif
                 @endif
                 
               <td>
